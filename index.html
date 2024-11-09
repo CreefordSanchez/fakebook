@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FakeBook</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap">
+    <link rel="stylesheet" href="./source/css/style.css" media="all">
+    <script src="./source/js/script.js" defer></script>
+  </head>
+  <body>
+    <div class="user-info-container">
+      <div class="user-info-box">
+        <div class="cancel-btn-box">
+          <i class="fa-solid fa-xmark cancel-create-info"></i>
+        </div>
+        <form>
+          <label>ID</label>
+          <input type="text" class="infoText" placeholder="Enter ID">
+
+          <label>Name</label>
+          <input type="text" class="infoText" placeholder="Enter Name">
+          
+          <label>UserName</label>
+          <input type="text" class="infoText" placeholder="Enter UserName">
+
+          <label>Email</label>
+          <input type="text" class="infoText" placeholder="Enter Email">
+        </form>
+        <div class="info-submit-box">
+          <button class="info-submit">Submit</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="display-curent-info-container">
+      <div class="display-info-box">
+        <div class="cancel-btn-box">
+          <i class="fa-solid fa-xmark cancel-print-info"></i>
+        </div>
+        <p class="user-information"></p>
+      </div>
+    </div>
+    <header>
+      <div class="header-content container">
+        <h1>FaceBook</h1>
+        <nav>
+          <ul>
+            <li><a href="">Friends</a></li>
+            <li><a href="">Pages</a></li>
+            <li><a class="user-info">Profile</a></li>
+            <li><a href="">Settings</a></li>
+          </ul>
+        </nav>
+        <div class="user-icon-box">
+          <div class="user-icon icon-btn">
+            <img src="./source/img/city.jpg">
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="main-content container">
+        <div class="box-input">
+          <textarea class="text-input" maxlength="500" placeholder="Whats new user?"></textarea>
+          
+          <div class="select-and-submit">
+            <div class="select-img">
+              <i class="fa-solid fa-image"></i>
+              <select class="img-list">
+                <option>None</option>
+                <option value="./source/img/city.jpg">city.jpg</option>
+                <option value="./source/img/cinima.jpg">cinima.jpg</option>
+                <option value="./source/img/donut-in-plate.jpg">donut-in-plate.jpg</option>
+                <option value="./source/img/donut-left.jpg">donut-left.jpg</option>
+                <option value="./source/img/donut.png">donut</option>
+              </select>
+            </div>
+            <button class="post-btn">POST</button>
+          </div>
+        </div>
+
+        <div class="box-output">
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
