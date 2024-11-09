@@ -12,6 +12,10 @@ function createElement(tag) {
   return document.createElement(tag);
 }
 
+function addClass(selector, property) {
+  selector.classList.add(property);
+}
+
 class User {
   #id;
   #name;
@@ -59,7 +63,9 @@ class Subscriber extends User{
   get canMonetize() { return this.#canMonetize; }
 }
 
-//create the User info
+/*----------------------------------------------------------------------
+  The creation of new user information
+-----------------------------------------------------------------------*/
 const submitInfo = selector('.info-submit');
 const infoValues = document.querySelectorAll('.infoText');
 const pages = ['page1', 'page2', 'page3'];
@@ -73,12 +79,15 @@ listener(submitInfo, 'click', () => {
     let email = infoValues[3].value;
     
     infoValues.forEach(input => input.value = '');
+    // reasign new value to the default object 
+    //( i know its suppose to be const >-<)
     user = new Subscriber(id, name, userName, email, pages, groups, true);
   }   
 });
 
 let user = new Subscriber('1Q2W3E', 'guess', 'guess', 'guess', pages, groups, false);
 
+// pop up logic of the content
 const iconBtn = selector('.icon-btn');
 const showInfoClick = selector('.user-info-container');
 const removeInfo = selector('.cancel-create-info');
@@ -105,12 +114,15 @@ function infoValid() {
   return !hasEmptyValue;
 }
 
-// Print user's info
+/*----------------------------------------------------------------------
+  Printing the creation of the user information
+-----------------------------------------------------------------------*/
 const showPrintedInfoClick = selector('.display-curent-info-container')
 const displayInfoBtn = selector('.user-info');
 const userInfoList = selector('.user-information');
 const removePrintedInfo = selector('.cancel-print-info');
 
+// pop up logic of the content
 listener(displayInfoBtn, 'click', () => {
   userInfoList.innerHTML = user.getInfo();
   showPrintedInfoClick.style.display = 'flex';
@@ -120,7 +132,9 @@ listener(removePrintedInfo, 'click', () => {
   showPrintedInfoClick.style.display = 'none';
 });
 
-// Posting new post
+/*----------------------------------------------------------------------
+  Posting new content
+-----------------------------------------------------------------------*/
 const boxContainer = selector('.box-output');
 const postBtn = selector('.post-btn');
 const textInput = selector('.text-input');
@@ -169,22 +183,13 @@ function createBox() {
   const newBox = createElement('div');
   addClass(newBox, 'box');
   addContext(newBox);
+  //create new content starting from the top
   parentBox.prepend(newBox);
 }
 
 function addContext(newBox) {
   createBoxHeader(newBox);
   createContext(newBox);
-}
-
-function findDate() {
-  const date = new Date();
-
-  const month = date.getMonth() + 1;
-  const day = date.getDate();
-  const year = date.getFullYear();
-  
-  return(`${month}/${day}/${year}`);
 }
 
 function createBoxHeader(newBox) {
@@ -218,12 +223,22 @@ function addNameHeader(header) {
 
 function addDateHeader(header) {
   const boxDate = createElement('div');
-  addClass(boxDate, 'box-date');
   const printDate = createElement('p');
-  printDate.innerText = findDate();
-  boxDate.appendChild(printDate);
 
+  addClass(boxDate, 'box-date');
+  printDate.innerText = findDate();
+
+  boxDate.appendChild(printDate);
   header.appendChild(boxDate);
+}
+
+function findDate() {
+  const date = new Date();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  const year = date.getFullYear();
+  
+  return(`${month}/${day}/${year}`);
 }
 
 function createContext(newBox) {
@@ -242,8 +257,4 @@ function createContext(newBox) {
     imgOutput.src = getImg();
     newBox.appendChild(imgOutput);
   }
-}
-
-function addClass(selector, property) {
-  selector.classList.add(property);
 }

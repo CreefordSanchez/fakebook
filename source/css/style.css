@@ -58,6 +58,11 @@ li, a{
 a {
   color: var(--app-white);
   margin: 0 15px;
+  cursor: pointer;
+}
+
+h1 {
+  cursor: pointer;
 }
 
 .user-icon-box {
@@ -69,6 +74,7 @@ a {
   width: 30px;
   height: 30px;
   border-radius: 15px;
+  cursor: pointer;
 }
 
 .user-icon img{
